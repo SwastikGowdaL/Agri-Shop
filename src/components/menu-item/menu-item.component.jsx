@@ -1,20 +1,32 @@
 import React from "react";
 
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+
 import "./menu-item.styles.scss";
 
-const MenuItem = ({ title, imageUrl, size }) => (
-  <div className={`${size} menu-item`}>
+const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
+  let location = useLocation();
+  let navigate = useNavigate();
+  let params = useParams();
+  return (
     <div
-      style={{
-        backgroundImage: `url(${imageUrl})`,
+      className={`${size} menu-item`}
+      onClick={() => {
+        navigate(`/topics/${linkUrl}`);
       }}
-      className="background-image"
-    />
-    <div className="content">
-      <h1 className="title">{title.toUpperCase()}</h1>
-      <span className="subtitle">subtitle</span>
+    >
+      <div
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+        }}
+        className="background-image"
+      />
+      <div className="content">
+        <h1 className="title">{title.toUpperCase()}</h1>
+        <span className="subtitle">subtitle</span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default MenuItem;

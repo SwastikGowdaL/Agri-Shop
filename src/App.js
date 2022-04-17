@@ -1,10 +1,35 @@
-import './App.css';
+import React from "react";
+import { Route, Routes,Link ,useParams } from "react-router-dom";
+import "./App.css";
 import Homepage from "./pages/homepage/homepage.component";
+
+const HatsPage = props => { 
+  return (
+    <div>
+       <Link to="/topics/12">Topics</Link>
+      <h1>HATS Page</h1>
+    </div>
+  );
+};
+
+const Topics = props => {
+  let params = useParams();
+  console.log(params); 
+  return (
+    <div>
+      <h1>Topics</h1>
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-    <Homepage />
+    <div>
+      <Routes>
+        <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/hats" element={<HatsPage />} />
+        <Route exact path="/topics/:id" element={<Topics />} />
+      </Routes>
     </div>
   );
 }
