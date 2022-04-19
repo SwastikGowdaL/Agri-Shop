@@ -3,6 +3,8 @@ import { Route, Routes,Link ,useParams } from "react-router-dom";
 import "./App.css";
 import Homepage from "./pages/homepage/homepage.component";
 
+import ShopPage from "./pages/shop/shop.component";
+
 const HatsPage = props => { 
   return (
     <div>
@@ -29,6 +31,7 @@ function App() {
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/hats" element={<HatsPage />} />
         <Route exact path="/topics/:id" element={<Topics />} />
+        <Route exact path="/shop" element={<ShopPage />} />
       </Routes>
     </div>
   );
