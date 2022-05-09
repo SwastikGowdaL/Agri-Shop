@@ -1,22 +1,22 @@
 import React from "react";
-import { Route, Routes,Link ,useParams } from "react-router-dom";
+import { Route, Routes, Link, useParams } from "react-router-dom";
 import "./App.css";
 import Homepage from "./pages/homepage/homepage.component";
-
+import Header from "./components/header/header.component";
 import ShopPage from "./pages/shop/shop.component";
 
-const HatsPage = props => { 
+const HatsPage = (props) => {
   return (
     <div>
-       <Link to="/topics/12">Topics</Link>
+      <Link to="/topics/12">Topics</Link>
       <h1>HATS Page</h1>
     </div>
   );
 };
 
-const Topics = props => {
+const Topics = (props) => {
   let params = useParams();
-  console.log(params); 
+  console.log(params);
   return (
     <div>
       <h1>Topics</h1>
@@ -27,6 +27,7 @@ const Topics = props => {
 function App() {
   return (
     <div>
+      <Header />
       <Routes>
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/hats" element={<HatsPage />} />
